@@ -12,12 +12,14 @@ t_node	*new_node(int value)
 	return (node);
 }
 
-void	push_back(t_node **stack, int value)
+void	push_back(t_node **stack, char *value)
 {
 	t_node	*new;
 	t_node	*tmp;
+    int     n;
 
-	new = new_node(value);
+    n = atoi(value);
+	new = new_node(n);
 	if (!new)
 		return ;
 	if (!*stack)
@@ -35,8 +37,22 @@ void	print_stack(t_node *stack)
 {
 	while (stack)
 	{
-		printf("%d", stack->value);
+		printf("%d, ", stack->value);
 		stack = stack->next;
 	}
 	printf("\n");
+}
+int	count_nodes(t_node *stack)
+{
+	t_node	*tmp;
+	int		i;
+
+	tmp = stack;
+	i = 0;
+	while (tmp)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (i);
 }
