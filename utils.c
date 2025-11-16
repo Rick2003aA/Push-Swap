@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 18:28:54 by rtsubuku          #+#    #+#             */
+/*   Updated: 2025/11/10 18:28:55 by rtsubuku         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_node	*new_node(int value)
@@ -16,9 +28,9 @@ void	push_back(t_node **stack, char *value)
 {
 	t_node	*new;
 	t_node	*tmp;
-    int     n;
+	int		n;
 
-    n = atoi(value);
+	n = atoi(value);
 	new = new_node(n);
 	if (!new)
 		return ;
@@ -42,6 +54,7 @@ void	print_stack(t_node *stack)
 	}
 	printf("\n");
 }
+
 int	count_nodes(t_node *stack)
 {
 	t_node	*tmp;

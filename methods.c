@@ -1,3 +1,14 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   methods.c                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 09:29:11 by rtsubuku          #+#    #+#             */
+/*   Updated: 2025/11/10 09:29:23 by rtsubuku         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
 
 #include "push_swap.h"
 
@@ -45,7 +56,7 @@ void	swap_node(t_node **stack)
 	mid = first->next;
 	*stack = mid;
 	first->next = mid->next;
-	mid->next = first; 
+	mid->next = first;
 }
 
 void	push(t_node **src, t_node **dest)

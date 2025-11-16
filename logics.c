@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   logics.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 09:29:31 by rtsubuku          #+#    #+#             */
+/*   Updated: 2025/11/16 11:25:20 by rtsubuku         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_three(t_node **stack)
@@ -43,7 +55,7 @@ void	sort_three(t_node **stack)
 int	find_min(t_node *stack)
 {
 	t_node	*tmp;
-	int	min;
+	int		min;
 
 	tmp = stack;
 	min = tmp->value;
@@ -103,15 +115,36 @@ void	bubble_sort(int *arr, int size)
 		while (i < size - 1)
 		{
 			if (arr[i] > arr[i + 1])
-            {
-                tmp = arr[i];
-                arr[i] = arr[i + 1];
-                arr[i + 1] = tmp;
-                flag = 1;
-            }
-			i++;	
+			{
+				tmp = arr[i];
+				arr[i] = arr[i + 1];
+				arr[i + 1] = tmp;
+				flag = 1;
+			}
+			i++;
 		}
 	}
+}
+
+void	assign_ranks2(t_node *tmp, int size, int *arr)
+{
+	int	i;
+
+	while (tmp)
+	{
+		i = 0;
+		while (i < size)
+		{
+			if (tmp->value == arr[i])
+			{
+				tmp->rank = i;
+				break ;
+			}
+			i++;
+		}
+		tmp = tmp->next;
+	}
+	free (arr);
 }
 
 void	assign_ranks(t_node *stack)
@@ -138,21 +171,7 @@ void	assign_ranks(t_node *stack)
 	}
 	bubble_sort(arr, size);
 	tmp = stack;
-	while (tmp)
-	{
-		i = 0;
-		while (i < size)
-		{
-			if (tmp->value == arr[i])
-			{
-				tmp->rank = i;
-				break ;
-			}
-			i++;
-		}
-		tmp = tmp->next;
-	}
-	free (arr);
+	assign_ranks2(tmp, size, arr);
 }
 
 int	get_max_bits(t_node *stack)
@@ -172,7 +191,7 @@ int	get_max_bits(t_node *stack)
 	{
 		max = max / 2;
 		bits++;
-	}	
+	}
 	return (bits);
 }
 
@@ -189,13 +208,36 @@ int	make_binary(int n)
 	return (result);
 }
 
+void	radix_sort2(t_node **a, t_node **b, int i, int size)
+{
+	int	j;
+	int	bit;
+	int	flag;
+
+	j = 0;
+	flag = 0;
+	while (j < size && *a)
+	{
+		bit = (((*a)->rank / make_binary(i)) % 2);
+		if (bit == 0)
+		{
+			push(a, b);
+			printf("pb\n");
+		}
+		else
+		{
+			rotate(a);
+			printf("ra\n");
+		}
+		j++;
+	}
+}
+
 void	radix_sort(t_node **a, t_node **b)
 {
 	int	max_bits;
 	int	size;
 	int	i;
-	int	j;
-	int	bit;
 
 	assign_ranks(*a);
 	max_bits = get_max_bits(*a);
@@ -203,22 +245,7 @@ void	radix_sort(t_node **a, t_node **b)
 	i = 0;
 	while (i < max_bits)
 	{
-		j = 0;
-		while (j < size && *a)
-		{
-			bit = (((*a)->rank / make_binary(i)) % 2);
-			if (bit == 0)
-			{
-				push(a, b);
-				printf("pb\n");
-			}
-			else
-			{
-				rotate(a);
-				printf("ra\n");
-			}
-			j++;
-		}
+		radix_sort2(a, b, i, size);
 		while (*b)
 		{
 			push(b, a);
