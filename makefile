@@ -1,7 +1,7 @@
 NAME    := a.out
 CC      := cc
 CFLAGS  := -Wall -Wextra -Werror
-SRCS    := push_swap.c utils.c methods.c logics.c
+SRCS    := push_swap.c utils.c methods.c logics.c ft_atoi.c ft_split.c radix_sort.c utils_for_radix.c
 OBJS    := $(SRCS:.c=.o)
 
 .PHONY: all clean fclean re debug test10 test100 test500

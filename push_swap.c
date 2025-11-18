@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:54:15 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/16 13:13:59 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/11/18 11:41:52 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,20 +29,19 @@ int	error_check(char **av)
 {
 	int	i;
 	int	j;
-	int	n;
 	int	error;
 
 	i = 1;
 	error = 0;
 	while (av[i])
 	{
-		n = ft_atoi(av[i], &error);
+		ft_atoi(av[i], &error);
 		if (error)
 			return (1);
 		j = i + 1;
 		while (av[j])
 		{
-			if (atoi(av[i]) == atoi(av[j]))
+			if (ft_atoi(av[i], &error) == ft_atoi(av[j], &error))
 				return (1);
 			j++;
 		}
@@ -59,17 +58,22 @@ int	main(int ac, char **av)
 
 	a = NULL;
 	b = NULL;
-	(void)ac;
-	if (error_check(av))
+	i = 1;
+	if (ac == 2)
 	{
-		printf("Error");
+		av = ft_split(av[i], ' ');
+		i = 0;
+	}
+	if (ac < 2 || error_check(av))
+	{
+		printf("Error\n");
 		return (0);
 	}
-	i = 1;
 	while (av[i])
 	{
 		push_back(&a, av[i]);
 		i++;
 	}
 	parse_node(&a, &b);
+	return (0);
 }
