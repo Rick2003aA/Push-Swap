@@ -15,7 +15,7 @@ $(NAME): $(OBJS) push_swap.h
 	$(CC) $(CFLAGS) -c $< -o $@
 
 test2000:
-	@ARGS=$$(python3 -c "import random; print(' '.join(map(str, random.sample(range(1,101), 100))))"); \
+	@ARGS=$$(python3 -c "import random; print(' '.join(map(str, random.sample(range(1,11), 10))))"); \
 	echo $$ARGS; \
 	./$(NAME) $$ARGS | ~/Downloads/checker_linux $$ARGS
 

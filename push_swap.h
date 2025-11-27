@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:29:26 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/27 14:40:56 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:52:07 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ void	push(t_node **src, t_node **dest);
 void	sort_three(t_node **stack);
 void	sort_five(t_node **a, t_node **b);
 
-//print_methods
+// //print_methods
 void	pf_ra(t_node **stack);
 void	pf_rra(t_node **stack);
 void	pf_sa(t_node **stack);
@@ -71,7 +71,7 @@ int		count_nodes(t_node *stack);
 int		ft_atoi(const char *nptr, int *error);
 char	**ft_split(char const *s, char c);
 
-//for printf
+//for ft_printf
 int		ft_printf(const char *fmt, ...);
 void	pf_putc(t_pf *st, char c);
 void	pf_puts(t_pf *st, char *s);

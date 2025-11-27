@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:54:15 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/27 14:23:39 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:50:49 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,7 +66,7 @@ int	main(int ac, char **av)
 	}
 	if (ac < 2 || error_check(av))
 	{
-		printf("Error\n");
+		ft_printf("Error\n");
 		return (0);
 	}
 	while (av[i])

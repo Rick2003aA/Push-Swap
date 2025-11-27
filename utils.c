@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:28:54 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/27 14:25:08 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:50:49 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,10 +49,10 @@ void	print_stack(t_node *stack)
 {
 	while (stack)
 	{
-		printf("%d, ", stack->value);
+		ft_printf("%d, ", stack->value);
 		stack = stack->next;
 	}
-	printf("\n");
+	ft_printf("\n");
 }
 
 int	count_nodes(t_node *stack)

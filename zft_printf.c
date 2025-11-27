@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_printf.c                                        :+:      :+:    :+:   */
+/*   zft_printf.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/10/22 13:04:55 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/13 10:30:17 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:53:34 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "ft_printf.h"
+#include "push_swap.h"
 
 void	pf_parse(t_pf *st)
 {
@@ -87,135 +87,3 @@ int	ft_printf(const char *fmt, ...)
 	va_end(st.ap);
 	return (st.written);
 }
-
-// int	main(void)
-// {
-// 	int ret1, ret2;
-// 	int x = 42;
-// 	void *p = &x;
-
-// 	printf("===== %% TESTS =====\n");
-// 	ret1 = ft_printf("%%");
-// 	printf("\n");
-// 	ret2 = printf("%%");
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%%%");
-// 	printf("\n");
-// 	ret2 = printf("%%%");
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%");
-// 	printf("\n");
-// 	ret2 = printf("%");
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%v");
-// 	printf("\n");
-// 	ret2 = printf("%v");
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%\n");
-// 	printf("\n");
-// 	ret2 = printf("%\n");
-// 	printf("ret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	printf("===== CHARACTER =====\n");
-// 	ret1 = ft_printf("%c", 'A');
-// 	printf("\n");
-// 	ret2 = printf("%c", 'A');
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%c", '\0');
-// 	printf("\n");
-// 	ret2 = printf("%c", '\0');
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	printf("===== STRING =====\n");
-// 	ret1 = ft_printf("%s", "hello");
-// 	printf("\n");
-// 	ret2 = printf("%s", "hello");
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%s", "");
-// 	printf("\n");
-// 	ret2 = printf("%s", "");
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%s", (char *)NULL);
-// 	printf("\n");
-// 	ret2 = printf("%s", (char *)NULL);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	printf("===== POINTER =====\n");
-// 	ret1 = ft_printf("%p", (void *)0);
-// 	printf("\n");
-// 	ret2 = printf("%p", (void *)0);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%p", p);
-// 	printf("\n");
-// 	ret2 = printf("%p", p);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	printf("===== INTEGER =====\n");
-// 	ret1 = ft_printf("%d", 42);
-// 	printf("\n");
-// 	ret2 = printf("%d", 42);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%d", -42);
-// 	printf("\n");
-// 	ret2 = printf("%d", -42);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%d", INT_MIN);
-// 	printf("\n");
-// 	ret2 = printf("%d", INT_MIN);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%d", INT_MAX);
-// 	printf("\n");
-// 	ret2 = printf("%d", INT_MAX);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	printf("===== UNSIGNED =====\n");
-// 	ret1 = ft_printf("%u", 0u);
-// 	printf("\n");
-// 	ret2 = printf("%u", 0u);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%u", 4294967295u);
-// 	printf("\n");
-// 	ret2 = printf("%u", 4294967295u);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	printf("===== HEX =====\n");
-// 	ret1 = ft_printf("%x", 255);
-// 	printf("\n");
-// 	ret2 = printf("%x", 255);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%X", 255);
-// 	printf("\n");
-// 	ret2 = printf("%X", 255);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%x", -1);
-// 	printf("\n");
-// 	ret2 = printf("%x", -1);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	ret1 = ft_printf("%x", INT_MIN);
-// 	printf("\n");
-// 	ret2 = printf("%x", INT_MIN);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	printf("===== MIXED =====\n");
-// 	ret1 = ft_printf("%c%s%d%u%x%p%%", 'A', "abc", -42, 123u, 255, p);
-// 	printf("\n");
-// 	ret2 = printf("%c%s%d%u%x%p%%", 'A', "abc", -42, 123u, 255, p);
-// 	printf("\nret_ft: %d | ret_lib: %d\n\n", ret1, ret2);
-
-// 	return (0);
-// }

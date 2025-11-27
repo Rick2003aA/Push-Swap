@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 09:29:31 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/18 12:37:29 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:50:49 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,7 @@ void	bring_min_to_top(t_node **stack, int min)
 	while ((*stack)->value != min)
 	{
 		rotate(stack);
-		printf("ra\n");
+		ft_printf("ra\n");
 	}
 }
 
@@ -76,7 +76,7 @@ void	sort_five(t_node **a, t_node **b)
 		min = find_min(*a);
 		bring_min_to_top(a, min);
 		push(a, b);
-		printf("pb\n");
+		ft_printf("pb\n");
 		i++;
 	}
 	sort_three(a);
@@ -84,6 +84,6 @@ void	sort_five(t_node **a, t_node **b)
 	while (j++ < i)
 	{
 		push(b, a);
-		printf("pa\n");
+		ft_printf("pa\n");
 	}
 }
