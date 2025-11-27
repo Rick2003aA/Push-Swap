@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:28:54 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/10 18:28:55 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:25:08 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ void	push_back(t_node **stack, char *value)
 	t_node	*tmp;
 	int		n;
 
-	n = atoi(value);
+	n = ft_atoi(value, 0);
 	new = new_node(n);
 	if (!new)
 		return ;

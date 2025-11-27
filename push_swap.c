@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:54:15 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/18 11:41:52 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/11/27 14:23:39 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	parse_node(t_node **a, t_node **b)
 {
-	int		i;
+	int	i;
 
 	i = count_nodes(*a);
 	if (i == 3)
