@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:29:26 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/27 14:52:07 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/11/27 16:12:07 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,6 +45,8 @@ void	push(t_node **src, t_node **dest);
 //logics
 void	sort_three(t_node **stack);
 void	sort_five(t_node **a, t_node **b);
+int		find_min(t_node *stack);
+void	bring_min_to_top(t_node **stack, int min);
 
 // //print_methods
 void	pf_ra(t_node **stack);
@@ -53,18 +55,19 @@ void	pf_sa(t_node **stack);
 
 //radix_sort
 void	radix_sort(t_node **a, t_node **b);
+void	radix_sort2(t_node **a, t_node **b, int i, int size);
 
 //utils for radix
 void	bubble_sort(int *arr, int size);
-void	assign_ranks2(t_node *tmp, int size, int *arr);
 void	assign_ranks(t_node *stack);
+void	assign_ranks2(t_node *tmp, int size, int *arr);
 int		get_max_bits(t_node *stack);
 int		make_binary(int n);
 
 //utils
 t_node	*new_node(int value);
 void	push_back(t_node **stack, char *value);
-void	print_stack(t_node *stack);
+// void	print_stack(t_node *stack);
 int		count_nodes(t_node *stack);
 
 //others from libft
