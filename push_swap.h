@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:29:26 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/27 16:12:07 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/12/03 11:06:02 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,7 +48,11 @@ void	sort_five(t_node **a, t_node **b);
 int		find_min(t_node *stack);
 void	bring_min_to_top(t_node **stack, int min);
 
-// //print_methods
+//free
+void	free_split(char **arr);
+void	free_list(t_node *n);
+
+//print_methods
 void	pf_ra(t_node **stack);
 void	pf_rra(t_node **stack);
 void	pf_sa(t_node **stack);

@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:54:15 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/28 12:19:44 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/12/03 11:04:42 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,30 +30,52 @@ void	parse_node(t_node **a, t_node **b)
 		radix_sort(a, b);
 }
 
-int	error_check(char **av)
+int	error_check(t_node *a)
 {
-	int	i;
-	int	j;
-	int	error;
-	int	tmp;
+	t_node	*list1;
+	t_node	*list2;
 
-	i = 1;
-	error = 0;
-	while (av[i])
+	list1 = a;
+	while (list1)
 	{
-		tmp = ft_atoi(av[i], &error);
-		if (error)
+		if (list1->value > INT_MAX || list1->value < INT_MIN)
 			return (1);
-		j = i + 1;
-		while (av[j])
+		list2 = list1->next;
+		while (list2)
 		{
-			if (tmp == ft_atoi(av[j], &error))
+			if (list1->value == list2->value)
 				return (1);
-			j++;
+			list2 = list2->next;
 		}
-		i++;
+		list1 = list1->next;
 	}
 	return (0);
+}
+
+void	arrange_str(int ac, char **av, t_node **a)
+{
+	int		i;
+	int		j;
+	char	**split;
+
+	i = 1;
+	while (i < ac)
+	{
+		split = ft_split(av[i], ' ');
+		if (!split || !split[0])
+		{
+			free_split(split);
+			return ;
+		}
+		j = 0;
+		while (split[j])
+		{
+			push_back(a, split[j]);
+			j++;
+		}
+		free_split(split);
+		i++;
+	}
 }
 
 int	main(int ac, char **av)
@@ -65,21 +87,15 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	i = 1;
-	if (ac == 2)
+	arrange_str(ac, av, &a);
+	if (error_check(a))
 	{
-		av = ft_split(av[i], ' ');
-		i = 0;
-	}
-	if (error_check(av))
-	{
-		ft_printf("Error\n");
+		free_list(a);
+		write(2, "Error\n", 6);
 		return (0);
 	}
-	while (av[i])
-	{
-		push_back(&a, av[i]);
-		i++;
-	}
 	parse_node(&a, &b);
+	free_list(a);
+	free_list(b);
 	return (0);
 }
