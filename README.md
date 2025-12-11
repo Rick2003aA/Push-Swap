@@ -1,8 +1,8 @@
 # ***This project has been created as part of the 42 curriculum by <rtsubuku>.***
 
-## **Description（説明）**
+## **Description**
 
-このプロジェクト **push_swap** は、与えられた整数列を、限られたスタック操作のみを用いて並び替えるプログラムを作成することを目的としています。
+**push_swap** は、与えられた整数列を、限られたスタック操作のみを用いて並び替えるプログラムを作成することを目的としています。
 
 スタック A と B を操作しながら、最小限の手数で昇順ソートを達成するアルゴリズムを実装します。
 
@@ -40,19 +40,18 @@ make
 
 ---
 
-## **Resources（リソース）**
+## **Resources**
 
 ### **参考資料**
 
-- C言語標準ライブラリ（malloc, free, atoi など）
-- スタックとリンクリストに関する基本資料
-- ソートアルゴリズム（特に Radix Sort）に関する技術ドキュメント
+- ソートアルゴリズムのシュミレーション（https://www.youtube.com/watch?v=kPRA0W1kECg）
+- 要素数が多い時のテストケース作成　(https://push-swap42-visualizer.vercel.app)
 
 ### **AI の使用について**
 
 AI（ChatGPT）は以下の用途で使用しました：
 
-- エラー処理や split の境界条件の確認
-- アルゴリズム理解のヒント（radix sort）
-- README の構成案作成
+- radix sortの理解 (座標圧縮とビット操作の理解)
+- Linked listの理解 (スタックA、Bの作成)
 - テストケース生成と不正入力の検証
+- README の構成案作成
