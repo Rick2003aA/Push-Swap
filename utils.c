@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:28:54 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/27 16:12:11 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/12/15 18:48:50 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,13 +24,26 @@ t_node	*new_node(int value)
 	return (node);
 }
 
-void	push_back(t_node **stack, char *value)
+void	error_exit(t_node *stack)
 {
-	t_node	*new;
-	t_node	*tmp;
-	int		n;
+	write(2, "Error\n", 6);
+	free_list(stack);
+	exit(1);
+}
 
-	n = ft_atoi(value, 0);
+void	push_back(t_node **stack, char *value, char **split)
+{
+	t_node		*new;
+	t_node		*tmp;
+	long long	n;
+	int			err;
+
+	n = ft_atoi(value, &err);
+	if (err)
+	{
+		free_split(split);
+		error_exit(*stack);
+	}
 	new = new_node(n);
 	if (!new)
 		return ;

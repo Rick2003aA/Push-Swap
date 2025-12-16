@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 11:44:47 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/18 11:45:55 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/12/15 18:57:11 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,6 +68,7 @@ void	assign_ranks(t_node *stack)
 	size = count_nodes(stack);
 	tmp = stack;
 	arr = malloc(sizeof(int) * size);
+	//修正
 	if (!arr)
 	{
 		free(arr);

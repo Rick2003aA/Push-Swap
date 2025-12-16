@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 09:29:31 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/27 14:50:49 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/12/07 08:34:20 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -55,8 +55,43 @@ int	find_min(t_node *stack)
 	return (min);
 }
 
+void	find_efficient_way(t_node **stack, int min, int size, int pos)
+{
+	if (pos <= size / 2)
+	{
+		while ((*stack)->value != min)
+		{
+			rotate(stack);
+			ft_printf("ra\n");
+		}
+	}
+	else
+	{
+		while ((*stack)->value != min)
+		{
+			rev_rotate(stack);
+			ft_printf("rra\n");
+		}
+	}
+}
+
 void	bring_min_to_top(t_node **stack, int min)
 {
+	int		pos;
+	int		size;
+	t_node	*tmp;
+
+	size = count_nodes(*stack);
+	pos = 0;
+	tmp = *stack;
+	while (tmp)
+	{
+		if (tmp->value == min)
+			break ;
+		tmp = tmp->next;
+		pos++;
+	}
+	find_efficient_way(stack, min, size, pos);
 	while ((*stack)->value != min)
 	{
 		rotate(stack);

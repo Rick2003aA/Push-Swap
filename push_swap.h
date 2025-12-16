@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 18:29:26 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/12/03 11:06:02 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/12/07 08:35:58 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@
 
 typedef struct e_node
 {
-	int				value;//value of elements
+	long long		value;//value of elements
 	int				rank;//for putting ranks to each elements
 	struct e_node	*next;//pointer to the next node
 }	t_node;
@@ -47,6 +47,7 @@ void	sort_three(t_node **stack);
 void	sort_five(t_node **a, t_node **b);
 int		find_min(t_node *stack);
 void	bring_min_to_top(t_node **stack, int min);
+void	find_efficient_way(t_node **stack, int min, int size, int pos);
 
 //free
 void	free_split(char **arr);
@@ -70,7 +71,8 @@ int		make_binary(int n);
 
 //utils
 t_node	*new_node(int value);
-void	push_back(t_node **stack, char *value);
+void	push_back(t_node **stack, char *value, char **split);
+void	error_exit(t_node *stack);
 // void	print_stack(t_node *stack);
 int		count_nodes(t_node *stack);
 

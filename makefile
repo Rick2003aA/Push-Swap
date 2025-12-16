@@ -1,6 +1,6 @@
 NAME    := push_swap
 CC      := cc
-CFLAGS  := -Wall -Wextra -Werror -I . #Makefileにincludeパスを追加する。.はカレントディレクトリ(push swapのトップ）なので、どこ階層にいる.cからもpush_swap.hを探せるようになる)
+CFLAGS  := -Wall -Wextra -Werror -I .
 SRCS    := push_swap.c utils.c methods.c logics.c print_methods.c free.c\
 			ft_atoi.c ft_split.c radix_sort.c utils_for_radix.c \
 			ft_printf/ft_printf.c ft_printf/print_any.c ft_printf/print_any2.c ft_printf/puts.c

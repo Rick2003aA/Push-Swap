@@ -6,7 +6,7 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/18 11:43:12 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/11/28 15:48:24 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/12/15 19:04:38 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ void	radix_sort2(t_node **a, t_node **b, int i, int size)
 	while (j < size)
 	{
 		bit = (((*a)->rank / make_binary(i)) % 2);
-		if (bit == 0)
+		if (((*a)->rank >> i) & 1)
 		{
 			push(a, b);
 			ft_printf("pb\n");

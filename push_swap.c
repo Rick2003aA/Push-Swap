@@ -6,20 +6,36 @@
 /*   By: rtsubuku <rtsubuku@student.42tokyo.jp>     +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/10 16:54:15 by rtsubuku          #+#    #+#             */
-/*   Updated: 2025/12/03 11:04:42 by rtsubuku         ###   ########.fr       */
+/*   Updated: 2025/12/15 18:51:08 by rtsubuku         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
+int	is_sorted(t_node *tmp)
+{
+	if (!tmp)
+		return (1);
+	while (tmp->next)
+	{
+		if (tmp->value > tmp->next->value)
+			return (0);
+		tmp = tmp->next;
+	}
+	return (1);
+}
+
 void	parse_node(t_node **a, t_node **b)
 {
-	int	i;
+	int		i;
 
+	if (is_sorted(*a))
+		return ;
 	i = count_nodes(*a);
-	if (i == 2 && (*a)->value > (*a)->next->value)
+	if (i == 2)
 	{
-		pf_ra(a);
+		if ((*a)->value > (*a)->next->value)
+			pf_ra(a);
 		return ;
 	}
 	else if (i == 3)
@@ -38,8 +54,6 @@ int	error_check(t_node *a)
 	list1 = a;
 	while (list1)
 	{
-		if (list1->value > INT_MAX || list1->value < INT_MIN)
-			return (1);
 		list2 = list1->next;
 		while (list2)
 		{
@@ -70,7 +84,7 @@ void	arrange_str(int ac, char **av, t_node **a)
 		j = 0;
 		while (split[j])
 		{
-			push_back(a, split[j]);
+			push_back(a, split[j], split);
 			j++;
 		}
 		free_split(split);
@@ -87,13 +101,11 @@ int	main(int ac, char **av)
 	a = NULL;
 	b = NULL;
 	i = 1;
+	if (ac == 1)
+		return (0);
 	arrange_str(ac, av, &a);
 	if (error_check(a))
-	{
-		free_list(a);
-		write(2, "Error\n", 6);
-		return (0);
-	}
+		error_exit(a);
 	parse_node(&a, &b);
 	free_list(a);
 	free_list(b);
